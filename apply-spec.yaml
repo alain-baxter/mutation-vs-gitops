@@ -4,7 +4,7 @@ spec:
     # Set to true to install and enable Config Sync
     enabled: true
     sourceFormat: unstructured
-    syncRepo: git@github.com:alain-baxter/mutation-vs-gitops.git
+    syncRepo: git://github.com/alain-baxter/mutation-vs-gitops.git
     syncBranch: main
     secretType: none
     policyDir: config-management
