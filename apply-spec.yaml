@@ -1,0 +1,18 @@
+applySpecVersion: 1
+spec:
+  configSync:
+    # Set to true to install and enable Config Sync
+    enabled: true
+    sourceFormat: unstructured
+    syncRepo: git@github.com:alain-baxter/mutation-vs-gitops.git
+    syncBranch: main
+    secretType: none
+    policyDir: config-management
+  policyController:
+    # Set to true to install and enable Policy Controller
+    enabled: true
+    mutationEnabled: true
+    templateLibraryInstalled: true
+    referentialRulesEnabled: true
+    logDeniesEnabled: true
+    # exemptableNamespaces: ["namespace-name"]

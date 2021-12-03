@@ -1,0 +1,12 @@
+apiVersion: mutations.gatekeeper.sh/v1alpha1
+kind: AssignMetadata
+metadata:
+  name: assign-test-label
+spec:
+  match:
+    namespaces:
+    - test-ns
+  location: metadata.labels.test
+  parameters:
+    assign:
+      value: mutation
