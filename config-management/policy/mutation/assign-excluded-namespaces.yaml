@@ -5,12 +5,8 @@ metadata:
 spec:
   applyTo:
   - groups: ["constraints.gatekeeper.sh"]
-    kinds: ["*"]
-    versions: ["*"]
-  match:
-    kinds:
-    - apiGroups: ["constraints.gatekeeper.sh"]
-      kinds: ["*"]
+    kinds: ["k8srequiredlabels"]
+    versions: ["v1beta1"]
   location: "spec.match.excludedNamespaces"
   parameters:
     assign:
