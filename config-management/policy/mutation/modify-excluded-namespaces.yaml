@@ -1,12 +1,16 @@
 apiVersion: mutations.gatekeeper.sh/v1alpha1
-kind: Assign
+kind: ModifySet
 metadata:
-  name: assign-excluded-namespaces
+  name: modify-excluded-namespaces
 spec:
   applyTo:
   - groups: ["constraints.gatekeeper.sh"]
-    kinds: ["k8srequiredlabels"]
+    kinds: ["K8sRequiredLabels"]
     versions: ["v1beta1"]
+  match:
+    kinds:
+    - apiGroups: ["constraints.gatekeeper.sh"]
+      kinds: ["K8sRequiredLabels"]
   location: "spec.match.excludedNamespaces"
   parameters:
     assign:
