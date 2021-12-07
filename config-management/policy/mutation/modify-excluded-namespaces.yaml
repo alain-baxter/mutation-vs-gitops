@@ -1,4 +1,4 @@
-apiVersion: mutations.gatekeeper.sh/v1alpha1
+apiVersion: mutations.gatekeeper.sh/v1beta1
 kind: ModifySet
 metadata:
   name: modify-excluded-namespaces
@@ -14,13 +14,14 @@ spec:
   location: "spec.match.excludedNamespaces"
   parameters:
     values:
-    - kube-system
-    - kube-public
-    - kube-node-lease
-    - istio-system
-    - gke-connect
-    - gke-system
-    - gatekeeper-system
-    - resource-group-system
-    - config-management-system
-    - config-management-monitoring
+      fromList:
+      - kube-system
+      - kube-public
+      - kube-node-lease
+      - istio-system
+      - gke-connect
+      - gke-system
+      - gatekeeper-system
+      - resource-group-system
+      - config-management-system
+      - config-management-monitoring
