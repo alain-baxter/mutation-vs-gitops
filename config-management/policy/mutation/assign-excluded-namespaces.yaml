@@ -1,0 +1,27 @@
+apiVersion: mutations.gatekeeper.sh/v1alpha1
+kind: Assign
+metadata:
+  name: assign-excluded-namespaces
+spec:
+  applyTo:
+  - groups: ["constraints.gatekeeper.sh"]
+    kinds: ["*"]
+    versions: ["*"]
+  match:
+    kinds:
+    - apiGroups: ["constraints.gatekeeper.sh"]
+      kinds: ["*"]
+  location: "spec.match.excludedNamespaces"
+  parameters:
+    assign:
+      value:
+      - kube-system
+      - kube-public
+      - kube-node-lease
+      - istio-system
+      - gke-connect
+      - gke-system
+      - gatekeeper-system
+      - resource-group-system
+      - config-management-system
+      - config-management-monitoring
