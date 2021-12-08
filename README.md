@@ -8,7 +8,7 @@ The findings are:
 3) An `Assign` mutation acting on other objects (for example, a Deployment object) can create a conflict where live cluster state does not match the expected state in the Config Sync source repository. The example of a conflict in the repository is an [Assign that sets deployment strategy](config-management/policy/mutation/assign-deployments-rolling-update.yaml) and a [Deployment that has it's own conflicting strategy](config-management/namespaces/test-ns/test-deployment.yaml). However, when monitoring the Config Sync reconciler there does not seem to be an impact on resource consumption or any log indication that it is spending more effort reconciling the conflicting deployment object state.
 
 ```
-$ k get deployment.apps/test-deployment -n test-ns -o yaml |yq eval '.spec.strategy' -
+$ kubectl get deployment test-deployment -n test-ns -o yaml |yq eval '.spec.strategy' -
 rollingUpdate:
   maxSurge: 1
   maxUnavailable: 0
